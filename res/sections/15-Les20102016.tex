@@ -1,4 +1,4 @@
-\section{Heuristics approachesfor pairwise sequence alignment}
+\section{Heuristics approaches for pairwise sequence alignment}
 These methods are very popular because they are much faster than dynamic
 programming and at the same time they return excellent alignment of biologica
 sequences.
@@ -50,3 +50,46 @@ the long database, because you can check all the differents sequence in the
 database where are all the data.
 
 \subsection{BLAST}
+
+Blast is probably the most popular program for the alignment of biological
+sequences.
+
+As the other, also BLAST use a lookup table, but it create also one for the
+similarities with a given threshold. Another difference from FASTA is that
+BLAST tries to extend locally each "seed", to obtain a High-scoring segment
+pair.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{BLAST}
+  \caption{BLAST}
+\end{figure}
+
+BLAST it's little faster than FASTA. Most people use BLAST also for DNA
+alignment and it works well.
+
+Different flavours of BLAST:
+\begin{itemize}
+  \item Nucleotide blast
+  \item Protein blast
+  \item blastx
+  \item tblastn
+  \item tblastx
+\end{itemize}
+
+%exam question
+What's the sense of translate the sequence in proteins? If you consider
+evolution of sequences, the natural selection is keepeng some of this
+information working and very often this natual selection it's working at the
+protein level. So sometime you can have 2 nucleotide sequences completely
+different but that encode the same protein. So it's much more accurate do it at
+the protein level.
+
+\subsection{BLAT}
+
+BLAT is an alignment tool like BLAST, but it's structured differently. On DNA,
+BLAT works by keeping an index of an entire genome in memory.
+
+The best things to do it's to align RNA with Genom.
+
+New version of BLAT can index more kmer.
