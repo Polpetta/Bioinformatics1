@@ -1,0 +1,41 @@
+\section{Genomic combination}
+
+\subsection{Sanger assembly: overlap-layout-consensus algorithm}
+
+With the sanger assembly we have to:
+\begin{enumerate}
+  \item calculat\end{enumerate}e pairwise alignments of all fragments
+  \item choose two fragments with the largest overlap
+  \item merge chosen fragments
+  \item repeat setp 2 and 3 until only one fragment is left
+\end{enumerate}
+
+The problem with this approach is that it takes a lot of time (the complexity
+is esponential). How can we solve this problem?
+
+\subsection{Shotgun fragmentation and assembly}
+With a genom we can try to see every read as a node and try to read it as an
+Hamiltonian path. But this lead to the \textit{Hamiltonian Problem}, that is a
+very difficult problem.
+Another solution is to implement an Eulerian path, that goes once over each
+edge, and it's a simpler problem.
+The Eulerian solution doesn't solve the problem of overlaps.
+
+\subsubsection{Be Bruijn graphs and Eulerian path}
+This is the best solution for now, and use a study published by the
+matematician Be Bruijn.
+Steps for the solution:
+\begin{enumerate}
+  \item In pratical terms, a shotgun library is made and it is sequenced at a
+reasonably high coverage, for instance 60x
+  \item The resulting fastq file is read once, and all the kmers are counted.
+This process will produce a list of all the kmers and their frequency
+  \item We can start from any kmer that was found at the expected frequency and
+we can extend the resulting conting by moving one position at a time. At every
+step we will need to choose one of the 4 possible kmers. This will be done by
+looking at the list of kmers. If there are no repeats then only one of the four
+kmers should be present in the list.
+\end{enumerate}
+
+What is the best lenght of kamers to have the best use? What happens with long
+kmers?
