@@ -1,0 +1,25 @@
+\section{RNA-Seq}
+RNA-Seq is cheaper than GEN-Seq
+
+
+If I want to find differences between different genoms I need to have a good 
+gene prediction. After this, we can merge the gene prediction with the sam file 
+(the position of the reads).
+
+When we load the sequencer, we don't have the same quantity of a genome, you 
+have to normalize it, and also you don't have all reads aligned. The 
+normalization helps to have something more comparable.
+
+Steps to do:
+\begin{enumerate}
+	\item Align the genome
+	\item Produce a table of reads
+	\item Read the counts from a file
+	\item Filtering
+\end{enumerate}
+
+\paragraph{Problems}
+95\% RNA is ribosomal RNA. There are methods to remove then, but they're not 
+perfect.
+
+% Transcryptomic (?)
