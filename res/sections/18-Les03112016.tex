@@ -1,0 +1,32 @@
+\section{DNA sequency}
+In DNA sequency there is a lot of technology involved. In particular an output
+from the DNA sequencer is composed by:
+\begin{itemize}
+  \item Raw data
+  \item Sequencing data
+  \item Metadata
+\end{itemize}
+
+The most common way to save data is in the \textit{fasta} form. The quality is
+usually saved in a \textit{qual} format, with the same name of the
+\textit{fasta} file. For each base there is a point, that mesure the quality.
+The quality is: $Q=-10\log_{10}P$
+
+\paragraph*{How to calculate the P value} With machine learning you can
+calculate the probability to have bad or good reads. \\
+
+
+During the years people found that using \textit{fasta} and \textit{qual} were
+difficult to read. So a new format was inventend around 2000: \textit{FASTQ}.
+The new format is composed by:
+\begin{itemize}
+  \item Sequence id
+  \item Genome sequence
+  \item A line for comment (starting with +). It can be empty
+  \item A line for quality. The quality is encoded with ASCII char, where the
+first char (with quality equal to 0) starts from 33 (!) and finish with 126.
+\end{itemize}
+
+To save differences between files we use the SAM and BAM format. GFF3 was an
+older format. In a SAM file, all the lines starting with an "@" it's an header
+information.
