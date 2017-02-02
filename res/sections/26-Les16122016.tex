@@ -1,0 +1,50 @@
+%\section{Transcription}
+\section{Other "omics" and "big data" integration}
+
+\subsection{Transcriptor factor}
+The promotor is where a transciptor factor binds.
+
+Most genes of bacteria are regulated with the Lac repressor.
+
+Genes are turned on and off by events (like it's too hot, you're poisoned by 
+metal, etc).
+
+A gene could have more of one promotor.
+
+The are some information, not in the genom itself that is called epigeonimc 
+that can do some modification to the organism (like caterpillar $\to$ 
+butterfly).
+
+SBML is a sort of formalism that allow you to describe gene, their position and 
+other information. There are many computer programs that allow you to input 
+these descriptions.
+
+\section{Finding relevant variants from personal genomic data}
+
+In 2008, 2 scientist did a lot of PCR reactions (36 million) in the genome of 
+22 human tumor samples to get only the exome (45 million bases).
+
+What do you do to process the genome?
+Steps:
+\begin{enumerate}
+	\item Sequencing (Illumina proton solid) $\to$ FASTQ file
+	\item Alignment (BWA many others) $\to$ SAM file
+	\item Variant call (GATK\footnote{One variant per line} IonProton Caller) 
+	$\to$ VCF file
+	\item make sense (QueryOR some other)
+\end{enumerate}
+
+We want to know from any variant the percentage.
+
+There are different annotation of all the variants. We can select the variants 
+that are involved in the disease and that we know the causative genes.
+
+\paragraph{QueryOR}
+Flow:
+\begin{enumerate}
+	\item Upload VCF file
+	\item Data processing from the QueryOR Server
+	\item Interactive queries\footnote{See \url{http://queryor.cribi.unipd.it}}
+\end{enumerate}
+
+Sometime our gene is not know at all, and we cannot use QueryOR.
