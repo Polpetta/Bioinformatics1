@@ -13,7 +13,8 @@ We require algorithms able to find the best alignment between two sequences,
 allowing gaps and mismatches.
 Problems:
 \begin{itemize}
-  \item We need a(N) objective function to establish exactly what we want to obtain
+  \item We need a(N) objective function to establish exactly what we want to 
+obtain
   \item We need an algorithm to find the best alignment, that is the alignment
 that returns the highest score with the objective function. Alternatively, an
 algorithm to find an alignment that approximate in the best possible way the
@@ -32,6 +33,8 @@ and should have different weight.
 A logical consequence of the above is that also matches should have different 
 weight on the alignment.
 
+\subsection{Objective function}
+
 We need a computational evaluation of the alignment. First we need an objective 
 function to establish in mathematical terms what we want to obtain. 
 Then we need a suitable algorithm to find the alignment that maximizes the 
@@ -46,9 +49,39 @@ Score = \sum_{i=1}^{L} s(a_i,b_i) - \sum_{j=1}^{G} (\gamma + \delta(len(j)-1))
 
 \begin{itemize}
 	\item \textbf{L} is the length of the alignment
-	\item The \textbf{sum $ s(a_i,b_i) (i=1..L) $} is calculated from the \textbf{substitution 
+	\item The \textbf{sum $ s(a_i,b_i) (i=1..L) $} is calculated from the 
+\textbf{substitution 
 matrix} s that defines a score for every pair of aligned amino acids.
-	\item Then comes the \textbf{penalty for gaps}. Each penalty is calculated for each 
-individual gap. \textbf{$\gamma$} is the fixed penalty for the opening of the gap and then 
-there is a penalty proportional to to gap length \textbf{$\delta$}.
+	\item Then comes the \textbf{penalty for gaps}. Each penalty is calculated
+ for each individual gap. \textbf{$\gamma$} is the fixed penalty for the
+ opening of the gap and then there is a penalty proportional to to gap length 
+\textbf{$\delta$}.
+\end{itemize}
+
+\subsection{Substitution matrices}
+
+The general idea (Margaret Dayhoff, 1978) was to start from the available 
+protein sequences (1500 sequences belonging to 71 families of closely related 
+proteins) and to calculate the probability in a small evolutionary step 
+(corresponding to 1\% of amino acid substitutions) that any amino acid would 
+change into another amino acid or remain the same.
+
+Such matrix would be the PAM1 probability matrix, that is almost an identity 
+matrix with probability 0.99... for identities and 0.00... for substitutions.
+
+\subsection{Properties of the Smith-Waterman algorithm}
+
+\begin{itemize}
+	\item It is based on dynamic programming
+	\item It returns exactly the best alignment, given a suitable substitution
+ matrix
+	\item Its complexity is quadratic $\omega(n^2)$, more precisely 
+$\omega(n*m)$, where n and m are the lengths of the two sequences
+	\item It can be used both on amino acid (proteins) and nucleic acid 
+(DNA and RNA) sequences.
+	\item In most cases we are not concerned in finding the best alignment 
+between 2 sequences, but in searching the most similar sequence in a database, 
+i.e. the sequence that can align with the highest score.
+	\item To search for similarities in a large database of sequences this 
+algorithm is too slow.
 \end{itemize}
