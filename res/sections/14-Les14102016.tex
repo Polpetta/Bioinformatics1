@@ -61,6 +61,19 @@ amino acids.
 
 \subsection{Substitution matrices}
 
+A substitution matrix describes \textbf{the rate at which one character in a
+sequence changes to other character states over time}. 
+
+Substitution matrices are usually seen in the context of amino acid or DNA
+sequence alignments, where the similarity between sequences depends on their
+divergence time and the substitution rates as represented in the matrix. \\
+
+In a substitution matrix, the $(i,j)th$ entry is equal to the probability of
+the $ith$ amino acid being transformed into the $jth$ amino acid in a certain
+amount of evolutionary time. 
+
+(Note that the identity matrix is also a substitution matrix) \\
+
 The general idea (Margaret Dayhoff, 1978) was to start from the available
 protein sequences (1500 sequences belonging to 71 families of closely related
 proteins) and to calculate the probability in a small evolutionary step
@@ -75,6 +88,44 @@ determining similar regions between two strings of nucleic acid sequences or
 protein sequences. Instead of looking at the entire sequence, the
 Smith–Waterman algorithm compares segments of all possible lengths and
 optimizes the similarity measure.
+
+A PAM scoring matrix s is obtained from the PAM 
+probability matrix M and from the casual probability 
+matrix C, as indicated in the following equation:
+
+\begin{equation}
+s(a,b) = int(10*\frac{M(a,b)}{C(a,b)})
+\end{equation}
+
+\paragraph*{Blosum matrix}
+
+The BLOSUM (BLOcks SUbstitution Matrix) matrix is a
+substitution matrix used for sequence alignment of proteins. 
+
+BLOSUM matrices are used to score alignments between evolutionarily
+divergent protein sequences. They are based on local alignments. 
+
+The BLOSUM matrices were produced from the BLOCK database, that contains
+the sequence alignments of the most conserved regions of protein families.
+
+These alignments are used to derive the BLOSUM matrices. 
+
+Only the sequences with a percentage of identity higher are used. 
+
+By using the block, counting the pairs of amino acids in each column of the
+multiple alignment.
+
+The procedure is similar to that used for PAM, but instead than reiterating
+small evolutionary steps, with the Blosum matrix we consider actual blocks
+with certain percentage of identity. 
+
+Therefore a Blosum100 does not make sense because it corresponds to an
+identity matrix.
+
+Very often people use Blosum60, obtained with blocks of 60\% identity.
+
+The log ratio against the casual pairing is calculated in a way essentially
+identical to that used for PAM. 
 
 \subsection{Smith-Waterman algorithm}
 
@@ -94,12 +145,14 @@ indexing).
 
 The first row and the first column must contain all zero.
 
-The scoring matrix H must be filled with the rule shown in the following
-picture:
+The scoring matrix H must be filled with the rule shown in figure
+\ref{fig:swalgorithm}
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.7]{SWalgorithm}
+  \caption{Main rule of Smith-Waterman algorithm}
+  \label{fig:swalgorithm}
 \end{figure}
 
 In other words, at every step it must be considered the highest value
@@ -132,13 +185,15 @@ And let the gap penalty be: \\
 
 $W_k = k*W_1, W_1 = 2$ where k is the length of the gap. \\
 
-The following figure shows the scoring process of the first three elements.
+Figure \ref{fig:steps} shows the scoring process of the first three elements.
 The yellow color indicates the bases that are being considered.
 The red color indicates the highest possible score for the cell being scored.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.45]{Smith-Waterman-Example}
+  \caption{few steps of Smith-Waterman algorithm}
+  \label{fig:steps}
 \end{figure}
 
 \subsection{Properties of the Smith-Waterman algorithm}
@@ -147,8 +202,8 @@ The red color indicates the highest possible score for the cell being scored.
   \item It is based on dynamic programming
   \item It returns exactly the best alignment, given a suitable substitution
  matrix
-  \item It's complexity is quadratic $\omega(n^2)$, more precisely
-$\omega(n*m)$, where $n$ and $m$ are the lengths of the two sequences
+  \item It's complexity is quadratic $\theta(n^2)$, more precisely
+$\theta(n*m)$, where $n$ and $m$ are the lengths of the two sequences
   \item It can be used both on amino acid (proteins) and nucleic acid (DNA and
 RNA) sequences
   \item In most cases we are not concerned in finding the best alignment
