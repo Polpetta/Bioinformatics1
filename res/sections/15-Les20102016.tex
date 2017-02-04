@@ -72,8 +72,8 @@ The sequence at the top is indexed, memorizing all the occurrences and
 position of each kmer. 
 
 Then the sequence at the left is read, one kmer at a time.
-All the "growing" diagonals are memorized to produce the result shown
-in panel A.
+All the ``growing'' diagonals are memorized to produce the result shown
+in panel A (figure \ref{fig:fasta}).
 
 Even if you have kmer of length one ($ktup = 1$), you will find better
 performance compared to Smith \& Waterman. This because you have to do less
@@ -87,14 +87,14 @@ is very accurate.
   \centering
   \includegraphics[scale=0.5]{FASTA}
   \caption{FASTA}
+  \label{fig:fasta}
 \end{figure}
 
 \textbf{Question}: If I have a very long sequence and several short DNA
-sequence, is it better to index the long or the short sequence?
+sequence, is it better to index the long or the short sequence? \\
  
-\textbf{Reply}: it's better to index
-the long database, because you can check all the differents sequence in the
-database where are all the data.
+\textbf{Answer}: it's better to index the long database, because you can
+check all the differents sequence in the database where are all the data.
 
 \subsection{BLAST}
 
@@ -103,16 +103,16 @@ sequences.
 
 As FASTA, BLAST use a lookup table, but it creates also an index for the
 similarities with a given threshold. Another difference from FASTA is that
-BLAST tries to extend locally each "seed", to obtain a High-scoring segment
+BLAST tries to extend locally each ``seed'', to obtain a High-scoring segment
 pair.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.5]{BLAST}
-  \caption{BLAST}
+  \label{fig:blast}
 \end{figure}
 
-BLAST it's little faster than FASTA. Most people use BLAST also for DNA
+BLAST is a little faster than FASTA. Most people use BLAST also for DNA
 alignment and it works well.
 
 Different flavours of BLAST:
@@ -125,11 +125,11 @@ Different flavours of BLAST:
 \end{itemize}
 
 %exam question
-\textbf{Question}: What's the sense of translate the sequence in proteins?
+\textbf{Question}: What's the sense of translate the sequence in proteins? \\
 
-If you consider evolution of sequences, the natural selection is keepeng
-some of this information working and very often this natual selection is
-working at the protein level. 
+\textbf{Answer}: If you consider evolution of sequences, the natural selection
+is keepeng some of this information working and very often this natual
+selection is working at the protein level. 
 
 Sometimes you can have 2 nucleotide sequences completely different that
 encode the same protein. 
