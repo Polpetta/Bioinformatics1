@@ -5,50 +5,51 @@ programming and at the same time they return excellent alignment of biological
 sequences.
 
 \paragraph*{From Wikipedia}
-Word methods, also known as k-tuple methods, are heuristic 
+Word methods, also known as k-tuple methods, are heuristic
 methods that are not guaranteed to find an optimal alignment solution,
 but are  significantly more efficient than dynamic programming.
 
 These methods are especially useful in large-scale database searches where
 it is known that a large proportion of the candidate sequences will
-have essentially no significant match with the query sequence. 
+have essentially no significant match with the query sequence.
 
 Word methods are best known for their implementation in the database
 search tools \textbf{FASTA and the BLAST} family.
 
 \subsection{General strategy}
 
-Let A and B be two sequence to be aligned. The general strategy of these
-methods is based on two main steps.
+Let $A$ and $B$ be two sequence to be aligned. The general strategy of these
+methods is based on two main steps:
 
 \begin{enumerate}
   \item Produce a \textbf{lookup table} where the words of length $k$
-(k-mers) present in sequence A are indexed, including all the position
-where they occur in sequence A.
-  \item Read sequence B, word by word. For every word check in the lookup talbe
-if and where the word occur in sequence A. Then try to extend the alignment.
+($k$-mers) present in sequence $A$ are indexed, including all the position
+where they occur in sequence $A$.
+  \item Read sequence $B$, word by word. For every word check in the lookup
+talbe if and where the word occur in sequence $A$. Then try to extend the
+alignment.
 \end{enumerate}
 
 Other strategies are: FASTA, BLAST and BLAT.
 
-\paragraph*{Conversion of DNA kmerso into numbers}
+\paragraph*{Conversion of DNA $k$-mers into numbers}
 
-Any word can be easily translated into an integer number. 
-DNA has an alphabet of 4 symbols, the number of possible words will be 4k
-where k is the word length.
+Any word can be easily translated into an integer number.
+DNA has an alphabet of 4 symbols, the number of possible words will be $4
+\cdot k$ where $k$ is the word length.
 
 Every symbol is associated to a value: for DNA, in binary notation
-generally is $A=00, C=01, G=10, T=11$. The translation of a word into a
+generally is $A=00,\ C=01,\ G=10,\ T=11$. The translation of a word into a
 number is therefore very fast.
 
 The resulting number can be directly used as an index to point
 to the address with the information about that word (i.e. all the positions
 where it occurs).
 
-With a given DNA you can translate ACGT with a binary number (see above).
+With a given DNA you can translate the four DNA symbols A, C, G, T with a
+binary number (see above).
 
-In this way you can convert a DNA sequence into a number. 
-
+In this way you can convert a DNA sequence into a number.
 This can be done also with ammino acid.
 
 But how do you fill up the metrics? This is why there are different metrics.
@@ -57,19 +58,19 @@ But how do you fill up the metrics? This is why there are different metrics.
 
 The FASTA programs find regions of local or global similarity between
 Protein or DNA sequences, either by searching Protein or DNA databases, or by
-identifying local duplications within a sequence. 
+identifying local duplications within a sequence.
 
 Other programs provide information on the statistical significance of an
-alignment. 
+alignment.
 
-Like BLAST, FASTA can be used to infer functional and evolutionary relationships 
+Like BLAST, FASTA can be used to infer functional and evolutionary relationships
 between sequences as well as help identify members of gene families.
 
 Imagine a sequence placed at the top and a sequence placed on the left side,
 both starting at the top left corner.
 
 The sequence at the top is indexed, memorizing all the occurrences and
-position of each kmer. 
+position of each kmer.
 
 Then the sequence at the left is read, one kmer at a time.
 All the ``growing'' diagonals are memorized to produce the result shown
@@ -80,7 +81,7 @@ performance compared to Smith \& Waterman. This because you have to do less
 operation with FASTA.
 
 Smith \& Waterman algorithm should be used only if you go for a full match.
-Analyzing a full alignment is expensive but Smith \& Waterman 
+Analyzing a full alignment is expensive but with Smith \& Waterman
 is very accurate.
 
 \begin{figure}[H]
@@ -92,9 +93,10 @@ is very accurate.
 
 \textbf{Question}: If I have a very long sequence and several short DNA
 sequence, is it better to index the long or the short sequence? \\
- 
-\textbf{Answer}: it's better to index the long database, because you can
-check all the differents sequence in the database where are all the data.
+
+\textbf{Answer}: It's better to index the long sequence, because you can
+check all the differents sequences in the database where are all the data is
+present.
 
 \subsection{BLAST}
 
@@ -125,16 +127,13 @@ Different flavours of BLAST:
 \end{itemize}
 
 %exam question
-\textbf{Question}: What's the sense of translate the sequence in proteins? \\
+\textbf{Question}: What's the meaning of translate the sequence in proteins? \\
 
 \textbf{Answer}: If you consider evolution of sequences, the natural selection
 is keepeng some of this information working and very often this natual
-selection is working at the protein level. 
-
+selection is working at the protein level.
 Sometimes you can have 2 nucleotide sequences completely different that
-encode the same protein. 
-
-So it's much more accurate do it at the protein level.
+encode the same protein, so it's much more accurate do it at the protein level.
 
 \subsection{BLAT}
 
