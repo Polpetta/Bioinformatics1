@@ -62,15 +62,15 @@ amino acids.
 \subsection{Substitution matrices}
 
 A substitution matrix describes \textbf{the rate at which one character in a
-sequence changes to other character states over time}. 
+sequence changes to other character states over time}.
 
 Substitution matrices are usually seen in the context of amino acid or DNA
 sequence alignments, where the similarity between sequences depends on their
 divergence time and the substitution rates as represented in the matrix. \\
 
-In a substitution matrix, the $(i,j)th$ entry is equal to the probability of
-the $ith$ amino acid being transformed into the $jth$ amino acid in a certain
-amount of evolutionary time. 
+In a substitution matrix, the $(i,j)^{th}$ entry is equal to the probability of
+the $i^{th}$ amino acid being transformed into the $j^{th}$ amino acid in a
+certain amount of evolutionary time.
 
 (Note that the identity matrix is also a substitution matrix) \\
 
@@ -89,8 +89,8 @@ protein sequences. Instead of looking at the entire sequence, the
 Smith–Waterman algorithm compares segments of all possible lengths and
 optimizes the similarity measure.
 
-A PAM scoring matrix s is obtained from the PAM 
-probability matrix M and from the casual probability 
+A PAM scoring matrix s is obtained from the PAM
+probability matrix M and from the casual probability
 matrix C, as indicated in the following equation:
 
 \begin{equation}
@@ -100,24 +100,24 @@ s(a,b) = int(10*\frac{M(a,b)}{C(a,b)})
 \paragraph*{Blosum matrix}
 
 The BLOSUM (BLOcks SUbstitution Matrix) matrix is a
-substitution matrix used for sequence alignment of proteins. 
+substitution matrix used for sequence alignment of proteins.
 
 BLOSUM matrices are used to score alignments between evolutionarily
-divergent protein sequences. They are based on local alignments. 
+divergent protein sequences. They are based on local alignments.
 
 The BLOSUM matrices were produced from the BLOCK database, that contains
 the sequence alignments of the most conserved regions of protein families.
 
-These alignments are used to derive the BLOSUM matrices. 
+These alignments are used to derive the BLOSUM matrices.
 
-Only the sequences with a percentage of identity higher are used. 
+Only the sequences with a percentage of identity higher are used.
 
 By using the block, counting the pairs of amino acids in each column of the
 multiple alignment.
 
 The procedure is similar to that used for PAM, but instead than reiterating
 small evolutionary steps, with the Blosum matrix we consider actual blocks
-with certain percentage of identity. 
+with certain percentage of identity.
 
 Therefore a Blosum100 does not make sense because it corresponds to an
 identity matrix.
@@ -125,7 +125,7 @@ identity matrix.
 Very often people use Blosum60, obtained with blocks of 60\% identity.
 
 The log ratio against the casual pairing is calculated in a way essentially
-identical to that used for PAM. 
+identical to that used for PAM.
 
 \subsection{Smith-Waterman algorithm}
 
