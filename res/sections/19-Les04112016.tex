@@ -88,11 +88,67 @@ obtained by considering the reads as edges and the overlaps as vertices.
 Also in this case we want to walk once over each read, but 
 now the reads are edges instead than vertices.
 
+\paragraph*{Euler's Theorem} A graph has a Eulerian cycle if the degree of every
+vertex is even.
+
+If the graph has directions (one way streets), then a Eulerian
+cycle exists if each vertex has the same number of entering and exiting edges. \\
+
 \textbf{Computationally the two problems are very different}.
 
-The Eulerian solution doesn't solve the problem of overlaps.
+The Eulerian solution doesn't solve the problem of overlaps.\\
+
+Two important points:
+
+\begin{itemize}
+	\item We are dealing with NGS reads. They could be billions and we cannot
+search for the overlaps of all reads against all, that has a complexity
+$n^2$. Ideally we would like to have a complexity proportional to the number
+of reads.
+	\item NGS reads may have different lengths. Which length should be
+consider for the reads (represented by the edges of the graph) and
+which length should we consider for the overlaps (represented by the vertices)?
+\end{itemize}
+
+Ideally, the longer reads and overlaps are and the better it should be.
+However, reads may contain sequencing errors.
+
+Consider a read of 80 bases with an error. 
+
+The wrong read will generate a false edge: not only any useful information
+contained in that read is lost, but a wrong edge is generated, producing noise.
+
+Instead, if we split the read into 3 words of 25 bases we would get 2
+perfectly right words and one wrong.
 
 \subsubsection{Be Bruijn graphs and Eulerian path}
+
+Consider the following statements:
+
+\begin{enumerate}
+	\item Given an alphabet of $n$ characters, there exist $n$ words of
+length $l$ whose suffix is $w$ (each such word is obtained by adding one of
+$n$ letters to the beginning of $w$)
+	\item The indegree of each vertex in $B(n,l)$ is also $n$
+	\item Every vertex of $B(n,l)$ has indegree and outdegree both equal to $n$
+	\item Euler's Theorem implies that $B(n,l)$ must have an Eulerian cycle
+\end{enumerate}
+
+For DNA sequences, we can consider that given a kmer of length k,
+existing within a DNA sequence, the next kmer shifted by one position will be
+one of the possible 4 words obtained by removing one character at one end of
+the previous word and adding one of the 4 possible characters to the other end.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{nextkmer}
+  \caption{next kmer}
+  \label{fig:nextkmer}
+\end{figure}
+
+This observation allows to build graphs very easily and make possible to search
+for Eulerian paths, thus assembling the kmers into contigs.
+
 This is the best solution for now, and use a study published by the
 matematician Be Bruijn.
 Steps for the solution:
