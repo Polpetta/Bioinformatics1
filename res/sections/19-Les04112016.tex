@@ -2,6 +2,16 @@
 
 \subsection{Sanger assembly: overlap-layout-consensus algorithm}
 
+We can think about the reads as the potential vertexes that we 
+want to connect with edges. 
+So \textbf{we want to find the edges connecting our reads}.
+The sequence-overlaps between reads will allow us to define the 
+edges of our Hamiltonian path.  
+So it is possible to build the path with simple greedy algorithms
+without the need to calculate all the possible hamiltonian paths to 
+find the best fit.
+If we have n reads, we will need to calculate $n^2$ possible overlaps.\\
+
 With the sanger assembly we have to:
 \begin{enumerate}
   \item calculate pairwise alignments of all fragments
@@ -11,14 +21,75 @@ With the sanger assembly we have to:
 \end{enumerate}
 
 The problem with this approach is that it takes a lot of time (the complexity
-is esponential). How can we solve this problem?
+is exponential). How can we solve this problem?\\
 
 \subsection{Shotgun fragmentation and assembly}
-With a genom we can try to see every read as a node and try to read it as an
-Hamiltonian path. But this lead to the \textit{Hamiltonian Problem}, that is a
-very difficult problem.
-Another solution is to implement an Eulerian path, that goes once over each
-edge, and it's a simpler problem.
+
+Consider this minute single stranded DNA circular genome, 14 bases long.
+Random fragments can start from any of the 14 positions.
+We can imagine to produce reads of just 3 bases, considering that the
+reads included in repeats will be found at a higher rate.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.25]{smalldna}
+  \caption{example dna}
+  \label{fig:smalldna}
+\end{figure}
+
+The reads are:
+
+\texttt{GGC, GCG, CGT, GTG, TGC, GCG, CGT, GTG, TGC, GCA, CAA, AAT, ATG, TGG}
+
+Classic methods for de novo assembly are based on connecting reads by overlaps.\\
+ 
+\textbf{reads $=$ graph nodes}
+ 
+\textbf{overlaps $=$ edges}\\
+
+Since there may be repeats, the graph may not be linear. 
+The assembly algorithm must find the most plausible path in the graph.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.25]{graphreads}
+  \caption{graph with reads and occurences}
+  \label{fig:graphreads}
+\end{figure}
+
+In our graph (figure \ref{fig:graphreads}) we should find a path 
+going over each node only once.
+
+Some sequences occurring at a higher rate may be repeated more 
+than once (bold circles) and we could represent them by two or more nodes
+with the same sequence. 
+
+Finding a path in a graph, passing \textbf{once over each node}, is known as
+Hamiltonian path problem.
+
+A Hamiltonian cycle is a Hamiltonian path that starts and ends at the same point.
+
+This lead to the \textit{Hamiltonian Problem}, that is a
+very difficult problem (NP-hard)
+
+Another solution is to implement an Eulerian path, that goes
+\textbf{once over each edge}, and it's a simpler problem.
+
+In the specific case of sequence assembly, an  Eulerian path can be
+obtained by considering the reads as edges and the overlaps as vertices.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.25]{eulerianreads}
+  \caption{graph with reads as edges}
+  \label{fig:eulerianreads}
+\end{figure}
+
+Also in this case we want to walk once over each read, but 
+now the reads are edges instead than vertices.
+
+\textbf{Computationally the two problems are very different}.
+
 The Eulerian solution doesn't solve the problem of overlaps.
 
 \subsubsection{Be Bruijn graphs and Eulerian path}
