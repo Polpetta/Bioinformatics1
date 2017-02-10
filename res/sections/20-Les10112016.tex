@@ -46,6 +46,20 @@ To better understand the described steps you can take a look at the figure
   \label{fig:mate_pair}
 \end{figure}
 
+\paragraph*{How can mate pair sequencing identify rearrangements?}
+
+Very simple: suppose you have a mate pair library originally constructed
+with fragments of 2kb, and a system for the production of reads 200 bases each.
+
+So we know from the start that the inner mate distance must necessarily be
+equal to $2000 - 200 = 1600 bp$.
+
+If in the process of alignment with the reference genome sequences the reads
+of a patient are separated by 1600 bp, it means that the patient does not have
+insertions or deletions.
+If the reads mapped at different distances (more or less), the patient will
+have a rearrangement (a deletion or an addition respectively).
+
 \section{Mate paired libraries}
 
 There are two types of coverage: sequence coverage and physical coverage.
