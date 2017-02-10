@@ -1,3 +1,4 @@
+\newpage
 \section{Genomic combination}
 
 \subsection{Sanger assembly: overlap-layout-consensus algorithm}
@@ -5,11 +6,14 @@
 We can think about the reads as the potential vertexes that we 
 want to connect with edges. 
 So \textbf{we want to find the edges connecting our reads}.
+
 The sequence-overlaps between reads will allow us to define the 
-edges of our Hamiltonian path.  
+edges of our \textbf{Hamiltonian path}.
+  
 So it is possible to build the path with simple greedy algorithms
 without the need to calculate all the possible hamiltonian paths to 
 find the best fit.
+
 If we have n reads, we will need to calculate $n^2$ possible overlaps.\\
 
 With the sanger assembly we have to:
@@ -33,7 +37,7 @@ reads included in repeats will be found at a higher rate.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.25]{smalldna}
-  \caption{example dna}
+  \caption{example DNA, can you imagine? :)}
   \label{fig:smalldna}
 \end{figure}
 
@@ -58,25 +62,30 @@ The assembly algorithm must find the most plausible path in the graph.
 \end{figure}
 
 In our graph (figure \ref{fig:graphreads}) we should find a path 
-going over each node only once.
+going over each node \textbf{only once}.
 
 Some sequences occurring at a higher rate may be repeated more 
 than once (bold circles) and we could represent them by two or more nodes
 with the same sequence. 
 
 Finding a path in a graph, passing \textbf{once over each node}, is known as
-Hamiltonian path problem.
+\textbf{Hamiltonian path problem}.
 
-A Hamiltonian cycle is a Hamiltonian path that starts and ends at the same point.
+A Hamiltonian \textbf{cycle} is a Hamiltonian path that starts and ends at
+the same point.
 
 This lead to the \textit{Hamiltonian Problem}, that is a
-very difficult problem (NP-hard)
+very difficult problem (NP-hard). \\
 
-Another solution is to implement an Eulerian path, that goes
+Another solution is to implement an \textbf{Eulerian path}, that goes
 \textbf{once over each edge}, and it's a simpler problem.
 
 In the specific case of sequence assembly, an  Eulerian path can be
-obtained by considering the reads as edges and the overlaps as vertices.
+obtained by considering the reads as edges and the overlaps as vertices.\\
+
+\textbf{reads $=$ edges}
+ 
+\textbf{overlaps $=$ graph nodes}\\
 
 \begin{figure}[H]
   \centering
@@ -88,8 +97,8 @@ obtained by considering the reads as edges and the overlaps as vertices.
 Also in this case we want to walk once over each read, but 
 now the reads are edges instead than vertices.
 
-\paragraph*{Euler's Theorem} A graph has a Eulerian cycle if the degree of every
-vertex is even.
+\paragraph*{Euler's Theorem} A graph has a Eulerian \textbf{cycle} if the
+degree of every vertex is \textbf{even} (pari).
 
 If the graph has directions (one way streets), then a Eulerian
 cycle exists if each vertex has the same number of entering and exiting edges. \\
@@ -153,8 +162,8 @@ If we knew all the kmers present in the genome, then we would be able to find
 the right next kmer.
 
 This is possible only if the kmer is present only once in the genome;
-therefore kmers must be long enough, otherwise the would occur by chance,
-and shouldn’t be repeats.
+therefore kmers must be long enough, otherwise the overlap (?) would occur by
+chance, and shouldn’t be repeats.
 
 This is the best solution for now, and uses a study published by the
 matematician Be Bruijn.
@@ -235,7 +244,7 @@ same number of entries and exits, but we cannot say which is the correct one.
 \subsection{Another example}
 
 In next example the same set of reads is used, but the length of kmer is
-k = 4. See figure \ref{fig:example2}.
+\textbf{k = 4}. See figure \ref{fig:example2}.
 
 With k=4 now we have only one node (AAC) with double branches, 
 thus we can read two relatively long linear “contigs”: 
