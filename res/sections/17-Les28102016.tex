@@ -5,14 +5,14 @@
 
 \begin{enumerate}
 	\item \textbf{Sensitivity} - Sanger technology, as well as other
-technologies, do not allow to read the signal from a single DNA 
-molecule. Therefore, the fragment of DNA to be sequenced 
-must be amplified and the signal is obtained from many 
-identical fragments. This requires \textbf{bacterial cloning}. 
+technologies, do not allow to read the signal from a single DNA
+molecule. Therefore, the fragment of DNA to be sequenced
+must be amplified and the signal is obtained from many
+identical fragments. This requires \textbf{bacterial cloning}.
 A very major bottleneck.
-	\item \textbf{Electrophoresis} - Sanger technology 
-requires the separation of the sequencing 
-reaction by individual electrophoresis, which 
+	\item \textbf{Electrophoresis} - Sanger technology
+requires the separation of the sequencing
+reaction by individual electrophoresis, which
 is another major bottleneck of the technology.
 \end{enumerate}
 
@@ -28,10 +28,12 @@ and you need to attach Adapters to DNA fragments (see figure \ref{fig:ngs})
 \end{figure}
 
 NGS doesn't use cloning in bacteria, but use PCR - Colonies (Polonies), so DNA
-is not mixed. 
+is not mixed.
 
-\textbf{Emulsion PCR} (ePCR) is a PCR variation that some NGS technologies use to replicate DNA sequences. 
-It is conducted on a bead surface within tiny water bubbles floating on an oil solution.
+\textbf{Emulsion PCR} (ePCR) is a PCR variation that some NGS technologies use
+to replicate DNA sequences.
+It is conducted on a bead surface within tiny water bubbles floating on an oil
+solution.
 
 \begin{figure}[H]
   \centering
@@ -40,9 +42,12 @@ It is conducted on a bead surface within tiny water bubbles floating on an oil s
 
 \paragraph*{Why replicate DNA?}
 
-This is a very important concept to understand, as all NGS techniques replicate DNA before sequencing is done. 
+This is a very important concept to understand, as all NGS techniques replicate
+DNA before sequencing is done.
 
-In short, DNA is replicated in order to amplify signals. No matter the method of sequencing, without a proper amount of amplification, it's near impossible to detect each base call. \\
+In short, DNA is replicated in order to amplify signals. No matter the method
+of sequencing, without a proper amount of amplification, it's near impossible
+to detect each base call. \\
 
 NGS doesn't need electrophoresis, but it uses istead different methods
 like the Pyrosequencing, that uses ATP and Luciferase, or Illumina
@@ -66,7 +71,7 @@ It makes easier the process of alignment and it allows to detect deletions,
 duplications or insertions.
 
 Tipically the two reads produced are not complementary and not overlapping
-because the don't cover the whole length of the starting fragment. 
+because the don't cover the whole length of the starting fragment.
 
 The missing sequence is unknown, but what its length is given.
 In the follow
@@ -74,7 +79,8 @@ In the follow
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.43]{sequencing}
-  \caption{Starting from the top, a DNA fragment, DNA fragment plus adaptors, single-end read, paired-end reads R1 R2, inner mate distance}
+  \caption{Starting from the top, a DNA fragment, DNA fragment plus adaptors,
+single-end read, paired-end reads R1 R2, inner mate distance}
   \label{fig:sequencing}
 \end{figure}
 
