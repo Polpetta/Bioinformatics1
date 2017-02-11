@@ -1,56 +1,56 @@
 \section{Practice lesson}
 Steps to do:
 \begin{enumerate}
-	\item index the files:
-	\begin{verbatim}
-	bwa index Lactobacillus_casei_genome.fasta
-	\end{verbatim}
-	\item take the two fastq files and do this command:
-	\begin{verbatim}
-	bwa mem Lactobacillus_casei_genome.fasta lact_sp.read1.fastq 
-	lact_sp.read2.fastq > res.sam
-	\end{verbatim}
-	\item from the .sam file, we have to convert it into the .bam file, apply a 
-	sorting and an indexing to obtain a .hai file.
-	\begin{verbatim}
-	samtools view -bS res > lact.bam
-	\end{verbatim}
-	\item Now you can see that if you do this commands:
-	\begin{verbatim}
-	samtools view lact.bam| wc
-	\end{verbatim}
-	this files has minus lines in confront of the \textit{.sam} file. If you want 
-	to see also the header you have to do this command:
-	\begin{verbatim}
-	samtools view -h lact.bam| wc
-	\end{verbatim}
-	\item Now we have to sort the file to genomic position %genomic is not a 
-	%english word
-	\begin{verbatim}
-	samtools sort lact.bam > lact-sorted.bam
-	\end{verbatim}
-	This is a longer operation and will take some time. You can see how the 
-	sorted file is smaller than the original one.
-	\item Now we can count the words:
-	\begin{verbatim}
-	samtools view lact-sorted.bam | wc
-	\end{verbatim}
-	\item Now let's see the file:
-	\begin{verbatim}
-	samtools view lact-sorted.bam | less -S
-	\end{verbatim}
-	As you can see the genomic positions are sorted. There are also genomic 
-	position that are bad and that will be at the bottom of the file with an star 
-	(*)
-	\item Now we want to index the sorted file with this command:
-	\begin{verbatim}
-	samtools idnex lact-sorted.bam
-	\end{verbatim}
-	And we will obtain a .bai file.
-	\item Now we will start the IGV browser (igv) with this command:
-	\begin{verbatim}
-	igv &
-	\end{verbatim}
-	We have to put a genome in the program. Go in File $\to$ Load from file $\to$ 
-	select the .bam sorted file.
+  \item index the files:
+  \begin{verbatim}
+  bwa index Lactobacillus_casei_genome.fasta
+  \end{verbatim}
+  \item take the two fastq files and do this command:
+  \begin{verbatim}
+  bwa mem Lactobacillus_casei_genome.fasta lact_sp.read1.fastq
+  lact_sp.read2.fastq > res.sam
+  \end{verbatim}
+  \item from the .sam file, we have to convert it into the .bam file, apply a
+  sorting and an indexing to obtain a .hai file.
+  \begin{verbatim}
+  samtools view -bS res > lact.bam
+  \end{verbatim}
+  \item Now you can see that if you do this commands:
+  \begin{verbatim}
+  samtools view lact.bam| wc
+  \end{verbatim}
+  this files has minus lines in confront of the \textit{.sam} file. If you want
+  to see also the header you have to do this command:
+  \begin{verbatim}
+  samtools view -h lact.bam| wc
+  \end{verbatim}
+  \item Now we have to sort the file to genomic position %genomic is not a
+  %english word
+  \begin{verbatim}
+  samtools sort lact.bam > lact-sorted.bam
+  \end{verbatim}
+  This is a longer operation and will take some time. You can see how the
+  sorted file is smaller than the original one.
+  \item Now we can count the words:
+  \begin{verbatim}
+  samtools view lact-sorted.bam | wc
+  \end{verbatim}
+  \item Now let's see the file:
+  \begin{verbatim}
+  samtools view lact-sorted.bam | less -S
+  \end{verbatim}
+  As you can see the genomic positions are sorted. There are also genomic
+  position that are bad and that will be at the bottom of the file with an star
+  (*)
+  \item Now we want to index the sorted file with this command:
+  \begin{verbatim}
+  samtools idnex lact-sorted.bam
+  \end{verbatim}
+  And we will obtain a .bai file.
+  \item Now we will start the IGV browser (igv) with this command:
+  \begin{verbatim}
+  igv &
+  \end{verbatim}
+  We have to put a genome in the program. Go in File $\to$ Load from file $\to$
+  select the .bam sorted file.
 \end{enumerate}
