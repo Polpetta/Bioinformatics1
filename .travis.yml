@@ -17,3 +17,12 @@ script:
 - make
 before_deploy:
 - git fetch --tags
+deploy:
+  provider: releases
+  api_key:
+    secure: tOLihmgljvgxXe7NSb20mF6Yq9ykJ+lT7zIMTDyCeJcOwKngmD94GkzkkyW7QpUh+smhRu0z3bUW+mdbU89K9mKM1fLJLW0EG/Q2gDptbNEFfQ15XNG3UHTu1jESRssZxq9HcFfuOhW+6v9HthBKwmyGgXtpLAjtiGCKnGAjKXwjPYPXR2yBSpuIlSdSs7DIT5X28MJrIXMV2UMLLJMh9ZCQrgPdcdGuwobCAJiS5BQ5dlCAizHHrr2/3z7b4UuZrqzeu/+DlFaeotNWpzoWrsRpWeIVEgt6ibpVqT21gxpE9vDedlw2hSYVC75hYQqr9dV1MX32vUaRgQJ1Sv37EWI4Iuq3PPXeJTZrmjUNicznfsNUv47T/5qXeTopEk/7XRwTl8p2EkrUDZyPUSyvt0gg3earbz6uPtznwrWsbrUM0p9YhyZWcxYVfvOcHwrKJLJHCssyvx2HeEJaav2tQezG1j3k8+x1CFz+eHg+SeCEmsgkmVLLcj99KfM26urGX1ctyzCuLkPq0b0b9oXwGn09Tb9dXtOXXEXobEDMqkITkbL6or1mHQ/qtjZ6CXOQFOUYyhmCQBTKGL67e0UbiQeRSRq3DdK9IydOcTfi7LQaByYfSoAefHiZN6tCWYFQHAXhAD83XbjNS82NeTFm55i+3+dnYP7u/g6aeVJ1Wh4=
+  file: Bioinformatic1.pdf
+  skip_cleanup: true
+  on:
+    repo: Polpetta/Bioinformatic1
+    tags: true
