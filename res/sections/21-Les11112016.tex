@@ -1,12 +1,66 @@
 \section{Genetic and Physical mapping}
 
 \subsection{N50 statistic}
-N50 are metrics to measure the extent of the assembly. A contig N50 is 
-calculated by first ordering every contig by length from longest to shortest.
 
-50 mean that 50\% of the genome is assembled into contigs that are at least N50 
-bases long. The weakness of this method is that i need to know also how 
-accurate is the genome.
+\textbf{Contig}: A contig (from contiguous) is a set of overlapping DNA
+segments that together represent a consensus region of DNA.
+
+In bottom-up sequencing projects, a contig refers to overlapping sequence
+data (reads); in top-down sequencing projects, contig refers to the
+overlapping clones that form a physical map of the genome that is used
+to guide sequencing and assembly.
+
+Contigs can thus refer both to overlapping DNA sequence and to overlapping
+physical segments (fragments) contained in clones depending on the context. \\
+
+
+De novo genomic assembly leads to a great number of contigs and scaffolds,
+using respectively read overlaps and mate-paired analysis.
+
+The next question is how can we put everything together.
+
+
+Firstly we should have some metrics to measure the extent of the assembly.
+
+For this purpose we use the so called N50 statistics.
+
+A contig N50 is calculated by first ordering every contig by length from
+longest to shortest.
+
+Next, starting from the longest contig, the lengths of each contig are
+summed, until this running sum equals one-half of the total length of the
+genome (or, if the length of the genome is not available, you can use the sum
+of the length of all contigs in the assembly).
+
+The N50 value of a given assembly is the length of the shortest contig in this
+list.
+
+Another way to see it, is that 50\% of the genome is assembled into contigs
+that are at least N50 bases long.
+
+Generally, high values of N50 indicate better assembly.
+
+The scaffold N50 is calculated in the same fashion but uses scaffolds rather
+than contigs.
+
+Like N50 you can calculate N25, N90, or any other value of N, indicating
+respectively that 25\%, 90\%, or any other percentage of the genome is
+assembled into contigs longer than N25, N90, etc bases.
+
+Scaffolds and contigs with only a single read or read pair - often termed
+singletons - are frequently excluded from these calculations.
+
+Alongside with N50 very often is reported a L50 value that indicates the
+number of contigs included in the list.
+
+For instance, L50=350 and N50=42000 would mean that 50\% of the genome
+is assembled into 350 contigs longer or equal 42000 bases.
+
+This is very confusing because N indicates the length and L indicates
+the number.
+
+In fact, in some reports the two values are inverted, but common sense usually
+helps.
 
 \subsection{Genetic maps}
 Between generation we have crossing over of genetic code because we are diploid.
