@@ -79,3 +79,54 @@ synthesized?
   \Question RNA Polymerase
   \Question Ribosome
 \end{Answer}
+
+\begin{Exercise} [
+  title={Smith and Waterman algorithm},
+  difficulty={1},
+  label={exSW},
+  origin={G. Valle}
+ ]
+ 
+ Consider the following two sequences:
+
+ \begin{itemize}
+  \item \texttt{DFTLNL}
+  \item \texttt{EYSHMC}
+ \end{itemize}
+
+ Simulate the Smith-Waterman algorithm using the PAM240 and a gap penalty of
+ 4 points, both for starting and extending the gap.
+ Finally, report the two aligned sequences below and the final score of the
+ alignment.
+
+ \begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.3]{PAM240}
+ \end{figure}
+
+\end{Exercise}
+
+\newpage
+
+\begin{Answer} [
+  ref={exSW},
+  number={4}
+ ]
+ 
+ The scoring matrix obtained by applying the algorithm is the following: 
+
+ \begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.3]{matrix_ex}
+ \end{figure}
+
+ The \textbf{final alignment} is:
+
+ \begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{alignment_ex}
+ \end{figure}
+
+ Thus, the \textbf{final score} is 14.
+
+\end{Answer}
