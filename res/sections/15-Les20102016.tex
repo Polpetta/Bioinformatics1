@@ -23,7 +23,7 @@ methods is based on two main steps:
 
 \begin{enumerate}
   \item Produce a \textbf{lookup table} where the words of length $k$
-($k$-mers) present in sequence $A$ are indexed, including all the position
+($k$-mers) present in sequence $A$ are indexed, including all the positions
 where they occur in sequence $A$.
   \item Read sequence $B$, word by word. For every word check in the lookup
 talbe if and where the word occur in sequence $A$. Then try to extend the
@@ -35,8 +35,8 @@ Other strategies are: FASTA, BLAST and BLAT.
 \paragraph*{Conversion of DNA $k$-mers into numbers}
 
 Any word can be easily translated into an integer number.
-DNA has an alphabet of 4 symbols, the number of possible words will be $4
-\cdot k$ where $k$ is the word length.
+DNA has an alphabet of 4 symbols, thus the number of possible words will be
+$4^k$ where $k$ is the word length.
 
 Every symbol is associated to a value: for DNA, in binary notation
 generally is $A=00,\ C=01,\ G=10,\ T=11$. The translation of a word into a
@@ -50,14 +50,12 @@ With a given DNA you can translate the four DNA symbols A, C, G, T with a
 binary number (see above).
 
 In this way you can convert a DNA sequence into a number.
-This can be done also with ammino acid.
-
-But how do you fill up the metrics? This is why there are different metrics.
+This can be done also with amino acids.
 
 \subsection{FASTA}
 
 The FASTA programs find regions of local or global similarity between
-Protein or DNA sequences, either by searching Protein or DNA databases, or by
+proteins or DNA sequences, either by searching proteins or DNA databases, or by
 identifying local duplications within a sequence.
 
 Other programs provide information on the statistical significance of an
@@ -95,7 +93,7 @@ is very accurate.
 sequence, is it better to index the long or the short sequence? \\
 
 \textbf{Answer}: It's better to index the long sequence, because you can
-check all the differents sequences in the database where are all the data is
+check all the differents sequences in the database where are all the data are
 present.
 
 \subsection{BLAST}
@@ -105,7 +103,7 @@ sequences.
 
 As FASTA, BLAST uses a lookup table, but it creates also an index for the
 similarities with a given threshold. Another difference from FASTA is that
-BLAST tries to extend locally each ``seed'', to obtain a High-scoring segment
+BLAST tries to extend locally each ``seed'', to obtain a high-scoring segment
 pair.
 
 \begin{figure}[H]
