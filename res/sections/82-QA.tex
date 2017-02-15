@@ -79,3 +79,86 @@ synthesized?
   \Question RNA Polymerase
   \Question Ribosome
 \end{Answer}
+
+\begin{Exercise} [
+  title={DeBruijn assembly},
+  difficulty={2},
+  label={exA},
+  origin={G. Valle}
+ ]
+
+We want to discover the sequence of a hypothetical very small single stranded
+genome, with an estimated length of 20 bases.
+
+For this purpose, the 19 shotgun reads listed below were produced.
+
+Unfortunately, the sequencing technology was not very good and some sequencing
+errors may be possible.
+
+You should attempt to assemble the genome with the DeBruijn graph method,
+using \textbf{kmers of 4 bases}.
+
+Consider that there are 256 different kmers of 4 bases.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.3]{reads_exA}
+  \caption{Reads}
+  \label{fig:reads}
+\end{figure}
+
+  \Question You should check if all the kmer occur more or less at the expected
+level and you should consider possible repeated regions or kmers arising from
+sequencing errors.
+
+  \Question You should draw and analyse the resulting graph to establish if
+there is one or more Eulerian cycles and if there is any evidence to establish
+whether the original genome was linear or circular.
+
+  \Question You should write the final circular genomic sequence.
+
+Finally, you can further think about the peculiarity of this genome and why
+DeBruijn graph are used, instead than full length reads.
+\end{Exercise}
+
+\begin{Answer} [
+  ref={exA},
+  number={6}
+ ]
+
+  \Question
+
+\begin{tabular}{ | l | r | }
+  \hline
+  \textbf{Kmer} & \textbf{Count} \\ \hline
+  \texttt{AACT} & 4 \\ \hline
+  \texttt{ACTT} & 4 \\ \hline
+  \texttt{ACCT} & 5 \\ \hline
+  \texttt{ATTT} & 5 \\ \hline
+  \texttt{CTTC} & 5 \\ \hline
+  \texttt{CCTG} & 5 \\ \hline
+  \texttt{CTGA} & 5 \\ \hline
+  \texttt{CTAC} & 5 \\ \hline
+  \texttt{CGGG} & 5 \\ \hline
+  \texttt{TTCT} & 5 \\ \hline
+  \texttt{TCTA} & 5 \\ \hline
+  \texttt{TGAT} & 5 \\ \hline
+  \texttt{TTTC} & 4 \\ \hline
+  \texttt{TTCG} & 5 \\ \hline
+  \texttt{TCGG} & 5 \\ \hline
+  \texttt{TACC} & 5 \\ \hline
+  \texttt{TTTT} & 1 \\ \hline
+  \texttt{GATT} & 5 \\ \hline
+  \texttt{GGGA} & 3 \\ \hline
+  \texttt{GGAA} & 4 \\ \hline
+  \texttt{GAAC} & 4 \\ \hline
+  \texttt{GGGG} & 1 \\ \hline
+\end{tabular}
+
+Pheraps the reads \texttt{TTTT} and \texttt{GGGG} should be considered as
+sequencing errors.
+
+  \Question To be completed
+  \Question To be completed
+\end{Answer}
+
