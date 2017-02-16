@@ -52,8 +52,8 @@ Answer \textbf{True} or \textbf{False}:
    number={1}
  ]
 
-  \Question True
-  \Question False
+  \Question \textbf{True}
+  \Question \textbf{False}
   \subQuestion The second statement is wrong because of the crossing over
 
 \end{Answer}
@@ -288,7 +288,7 @@ bad genes.
    number={7}
  ]
 
-  \Question True
+  \Question \textbf{True}
 
 \end{Answer}
 
@@ -310,7 +310,7 @@ haploid cells called “gametes", that are 1N.
    number={9}
  ]
 
-  \Question False
+  \Question \textbf{False}
 
 \end{Answer}
 
@@ -328,7 +328,7 @@ haploid cells called “gametes", that are 1N.
    number={11}
  ]
 
-  \Question True
+  \Question \textbf{True}
 
 It is true. For instance in mammals, there is the alternation between the
 diploid phase (that is hugely predominant and multicellular) with the haploid
@@ -346,7 +346,7 @@ gametogenesis where the haploid gametes are produced by meiosis.
    number={12}
  ]
 
-  \Question False
+  \Question \textbf{False}
 
 \end{Answer}
 
@@ -355,7 +355,7 @@ gametogenesis where the haploid gametes are produced by meiosis.
    number={13}
  ]
 
-  \Question False
+  \Question \textbf{False}
 
 \end{Answer}
 
@@ -488,7 +488,7 @@ Choose an alternative:
    number={14}
  ]
 
-  \Question True
+  \Question \textbf{True}
 
 \end{Answer}
 
@@ -497,7 +497,7 @@ Choose an alternative:
    number={15}
  ]
 
-  \Question False
+  \Question \textbf{False}
 
 Sanger sequencing is still very important and there are still Sanger DNA
 sequencers on the market.
@@ -558,5 +558,89 @@ average read length (L) as $N*L/G$
  ]
 
   \Question 4 (long inversion)
+
+\end{Answer}
+
+\subsection{Others questions}
+
+\begin{Exercise} [
+  title={mRNA},
+  difficulty={1},
+  label={ex20},
+  origin={G. Valle}
+ ]
+
+Answer \textbf{True} or \textbf{False}:
+
+  \Question The mature mRNA is encoding proteins by means of codons that are
+3 bases long. Therefore mRNA have lengths that are necessarily multiple of 3.
+
+\end{Exercise}
+
+\begin{Exercise} [
+  title={Splicing},
+  difficulty={1},
+  label={ex21},
+  origin={G. Valle}
+ ]
+
+Answer \textbf{True} or \textbf{False}:
+
+  \Question Many genes contain introns that must be removed to obtain a
+functional mRNA (splicing process).
+The splicing mechanism is performed by the enzyme RNA polymerases that
+recognizes the introns and transcribes into mRNA only the exons.
+As a result the mRNA is constituted only by the exons.
+
+\end{Exercise}
+
+\begin{Exercise} [
+  title={Objective function for alignment},
+  difficulty={1},
+  label={ex22},
+  origin={G. Valle}
+ ]
+
+\begin{equation}
+Score = \sum_{i=1}^{L} s(a_i,b_i) - \sum_{j=1}^{G} (\gamma + \delta(len(j)-1))
+\end{equation}
+
+  \Question Explain what these symbols represent: L, G, $\gamma$, $\delta$,
+$s(a_i,b_i)$
+
+\end{Exercise}
+
+\subsection{Others answers}
+
+\begin{Answer} [
+   ref={ex20},
+   number={20}
+ ]
+
+  \Question \textbf{False}
+
+Although the coding regions have a length that must be multiple of 3, there are untranslated regions both in 3' and 5' (respectively 3'UTR and 5'UTR) that can be any length. Therefore the mRNA is not necessarily a multiple of 3.
+
+\end{Answer}
+
+\begin{Answer} [
+   ref={ex21},
+   number={21}
+ ]
+
+  \Question \textbf{False}
+
+RNA polymerases transcribe into RNA the full length of a gene, including the introns. The splicing process acts on the transcribed RNA by removing the intronic portions.
+
+\end{Answer}
+
+\begin{Answer} [
+   ref={ex22},
+   number={22}
+ ]
+
+  \Question L – length of the alignment, $\delta$ – penalty for gap elongation,
+G – number of gaps, $\gamma$ – penalty for staring a gap, $s(a_i, b_i)$ –
+score of the match at position i.
 
 \end{Answer}
