@@ -100,12 +100,29 @@ using \textbf{kmers of 4 bases}.
 
 Consider that there are 256 different kmers of 4 bases.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.3]{reads_exA}
-  \caption{Reads}
-  \label{fig:reads}
-\end{figure}
+\begin{verbatim}
+Reads:
+AACTTCTA
+ACCTGATT
+ACTTCTAC
+ATTTCGGG
+CCTGATTT
+CGGGAACT
+CTACCTGA
+CTGATTTT
+CTTCTACC
+GAACTTCT
+GATTTCGG
+GGAACTTC
+TACCTGAT
+TCGGGAAC
+TCTACCTG
+TGATTTCG
+TTCGGGAA
+TTCTACCT
+TTTCGGGG
+\end{verbatim}
+
 
   \Question You should check if all the kmer occur more or less at the expected
 level and you should consider possible repeated regions or kmers arising from
@@ -155,8 +172,14 @@ DeBruijn graph are used, instead than full length reads.
   \texttt{GGGG} & 1 \\ \hline
 \end{tabular}
 
-Pheraps the reads \texttt{TTTT} and \texttt{GGGG} should be considered as
-sequencing errors.
+Pheraps the kmers \texttt{TTTT} and \texttt{GGGG} should be considered as
+sequencing errors.\footnote{
+This script will help you to found all the kmers repetition:
+\lstinputlisting[language=Bash]{res/code/assembly.sh}
+You have to change launch the script with \textit{./script.sh /path/to/reads}.
+Please pay attention that if there are 2 match in the same line one will be
+counted out.}
+
 
   \Question \textbf{There is only one eulerian cycle}
 \begin{figure}[H]
