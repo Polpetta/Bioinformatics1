@@ -764,3 +764,408 @@ G – number of gaps, $\gamma$ – penalty for staring a gap, $s(a_i, b_i)$ –
 score of the match at position i.
 
 \end{Answer}
+
+\subsection{Sequencing}
+
+\begin{Exercise} [
+  label={ex23},
+  origin={G. Valle}
+ ]
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.3]{matepairsex}
+\end{figure}
+
+The figure shows the main steps for the construction of a mate pair library.
+Two reads will be obtained from each insert. The two reads will map on the
+genome on the forward strand (F) or on the reverse strand (R). Thus, each mate
+pair will have one of these combinations: FF, RR, FR, RF, where the first
+letter corresponds to the read mapping before (towards the 5' end) in the
+reference genome and the second letter corresponds to the ``mate'' read  mapping
+after (i.e. towards the 3' end).
+
+Choose one or more answers:
+
+\Question If the sequencing is done with primers A and C, do you need to attach
+the adaptor B ?
+\begin{enumerate}
+\item Yes
+\item It depends
+\item No
+\end{enumerate}
+
+\Question Which direction do you expect if the reads are produced with primers
+A and B (see figure)
+\begin{enumerate}
+\item RR
+\item FF
+\item RF
+\item FR
+\end{enumerate}
+
+\Question Which direction do you expect if the reads are produced with primers
+A and C (see figure)
+\begin{enumerate}
+\item FF
+\item RR
+\item RF
+\item FR
+\end{enumerate}
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex23},
+  number={1}
+ ]
+
+\Question Yes
+\Question RF
+\Question FR
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex24},
+  origin={G. Valle}
+ ]
+
+\Question Reconstruct the process of de novo assembly alternating an activity
+and an entity.
+\begin{itemize}
+\item MATE PAIRS ALIGNMENT
+\item FASTQ FILE
+\item VALIDATION
+\item SCAFFOLDS
+\item OVERLAP ASSEMBLY
+\item LIBRARY
+\item CONTIGS
+\item SEQUENCING
+\item DRAFT GENOME
+\end{itemize}
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex24},
+  number={1}
+ ]
+
+\Question 
+\begin{enumerate}
+\item LIBRARY
+\item SEQUENCING
+\item FASTQ FILE
+\item OVERLAP ASSEMBLY
+\item CONTIGS
+\item MATE PAIRS ALIGNMENT
+\item SCAFFOLDS
+\item VALIDATION
+\item DRAFT GENOME
+\end{enumerate}
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex25},
+  origin={G. Valle}
+ ]
+
+Imagine that you have assembled a genome into contigs and you want to further
+assemble your contigs into scaffolds. Given the cases described below, select
+the corresponding methods that you think are suitable, from this list:
+\begin{enumerate}
+\item Optical mapping
+\item Genetic maps
+\item Comparative genome analysis
+\item BAC-end sequencing
+\item Radiation hybrids
+\item PacBio sequencing, to produce very long reads
+\item Mate pairs
+\item BAC fingerprinting + BAC-end sequencing
+\item BAC Fingerprinting
+\end{enumerate} 
+
+\Question The genome belongs to a plant with a large genome that is
+phylogenetically distant from any other plant with known genome
+
+\Question The genome belongs to a bacterium with a relatively small genome
+
+\Question It is a mammalian genome and a BAC library is available
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex25},
+  number={1}
+ ]
+
+\Question Plant genome phylogenetically distant: this will be difficult.
+Optical mapping could be an option, but it is still poorly exploited and it
+works only for genomes that are not too long. PacBio could also be an option,
+as well as mate pairs sequencing\\\textbf{Optical mapping}
+
+\Question Bacterial genome: should be much easier. mate pairs should be a good
+approach\\\textbf{Mate pairs}
+
+\Question Mammalian genome with BAC library: To do BAC-end sequencing and/or
+BAC fingerprinting is too expensive. Try to calculate how any Sanger runs you
+would need. Since there are many mammalian genomes available, a better choice
+would be the comparative genome analysis, possibly considering several
+mammalian genomes\\\textbf{Comparative genome analysis}
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex26},
+  origin={G. Valle}
+ ]
+
+Complete the sentence below with 3 of these words:
+\begin{itemize}
+\item Eulerian
+\item Hamiltonian
+\item path
+\item bridge
+\item circle
+\item linear
+\item circular
+\item fragmented
+\end{itemize}
+
+A sequence was analysed for its kmer content and as a result this graph was
+obtained.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{circle}
+\end{figure}
+
+\Question From the graph we understand that a (a) (b) can be obtained,
+therefore the genome is (c)
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex26},
+  number={1}
+ ]
+
+\Question (a)Eulerian \\(b)circle \\(c)circular\\
+From the graph we understand that a \textbf{Eulerian} \textbf{circle} can be
+obtained, therefore the genome is \textbf{circular}
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex27},
+  origin={G. Valle}
+ ]
+
+\Question This question is about "Bridge PCR". The amplification in this case
+occurs on a plain structure, often called "flowchip". Is it true that only one
+of the two PCR primers is bound to the flowchip, while the other primer is free
+in the solution?
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex27},
+  number={1}
+ ]
+
+\Question No
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex28},
+  origin={G. Valle}
+ ]
+
+\Question Which DNA sequencers use methods based on emulsionPCR?
+Choose one or more answers:
+\begin{enumerate}
+\item PacBio
+\item SOLiD
+\item Oxford Nanopore
+\item Illumina Risposta errata
+\item Pyrosequencing (454 Roche)
+\item Ion Proton
+\item Sanger
+\end{enumerate}
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex28},
+  number={1}
+ ]
+
+\Question Ion Proton, SOLiD, Pyrosequencing (454 Roche)
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex29},
+  origin={G. Valle}
+ ]
+
+\Question Which components do you have to include in the emulsion PCR mixture?
+Scegli una o più alternative:
+\begin{enumerate}
+\item mRNA
+\item dNTPs
+\item tRNA
+\item Primers
+\item Taq Polymerase
+\item NGS library
+\item ATP
+\item SDS
+\end{enumerate}
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex29},
+  number={1}
+ ]
+
+\Question dNTPs, Taq Polymerase, Primers, NGS library
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex30},
+  origin={G. Valle}
+ ]
+
+From a genome 60 million bases long, we produced a mate-pair library with
+inserts averaging 6000 bp, with a standard deviation of 500 bases, then we made
+an Illumina NGS library and we produced 20 million mate pairs 150+150 bases 
+i.e. 20 million forward and 20 million reverse).
+
+\Question Calculate the average sequence coverage
+
+\Question Calculate the average physical coverage
+
+\Question How much do you think it costs to produce the 6 billion bases for
+this experiment?  Give your estimate number of Euro
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex30},
+  number={1}
+ ]
+
+Sequence coverage:
+150 bases x 40 millions = 6 billions bases produced by the DNA sequencer
+6 billions / 60 million = 100 average sequence coverage
+
+Physical coverage:
+Each mate pair produces 150+150 bases = 300 bases of sequence
+Each mate pair produces 6000 bases of physical coverage
+the physical coverage will be 6000/300 = 20 times more than sequence coverage
+Therefore physical coverage = 2000
+
+The accuracy of predicting an insertion/deletion of 300 bases will be high
+because although the standard deviation is 600, you must take into account that
+there will be about 2000 fragments covering that position. Therefore you must
+calculate that the standard deviation of a population of 2000 cases must be
+divided by the square root of 2000, that is $\sim$45. Thus 600/45 = 13.4 bases
+
+A coverage of 100x is suitable for a genomic sequencing project
+The cost of reagents to produce 6 billion bases on Illumina could be $\sim$
+\euro 300
+
+\Question 100
+
+\Question 2000
+
+\Question \euro 300
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex31},
+  origin={G. Valle}
+ ]
+
+\Question Assume that the genome that you are sequencing has a sequence of 300
+bases that is tandem repeated 6 times, while in the reference genomes it is
+repeated 5 times. Would you be able to predict whether there are 5 or 6 repeats?
+\begin{itemize}
+\item Yes, with an accuracy >90\%
+\item We could only make a low accuracy hypothesis if we knew a priory that
+there may be a difference Risposta errata
+\item No, because the difference of 300 bases is too small when the standard
+deviation is 600 bases
+\end{itemize}
+
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex31},
+  number={1}
+ ]
+
+\Question Yes, with an accuracy >90\%
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex32},
+  origin={G. Valle}
+ ]
+
+\Question What is the expected percentage of the genome covered exactly by 3
+reads? (Approximate to the nearest integer)
+
+\Question What is the expected percentage of the genome still uncovered by
+reads? (Approximate to the nearest integer)
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex32},
+  number={1}
+ ]
+
+\Question  You must consider the Poisson distribution with v=3 and r=2:
+\begin{equation}
+f(v) = \frac{e^{-r}*r^v}{v!} \sim \frac{2.7^{-2}*2^3}{3!} \sim 
+\frac{0.14 * 8}{6} \sim 0.18
+\end{equation}
+Therefore $\sim$18\% of the genome will be covered by 3 reads
+
+\Question To do a precise calculation you should consider the poisson formula,
+or its simplified version for v=0 (that is for the probability that a position
+is covered 0 times). That is e to the power -r, where r is the ``redundancy''
+that is the average coverage. In our case r=2, therefore:
+\begin{equation}
+e^{-2} = \frac{1}{e^2} \sim \frac{1}{2.7^2} \sim \frac{1}{7} \sim 0.14
+\end{equation}
+Therefore, about 14\% of the genome is expected to be uncovered by reads
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex33},
+  origin={G. Valle}
+ ]
+
+\Question Consider this formula (where \textbf{e} is approximately equal to 2.7)
+\begin{equation}
+f(v) = \frac{e^{-r}*r^v}{v!}
+\end{equation}
+What is it about?
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex33},
+  number={1}
+ ]
+
+\Question  The formula is about the Poisson distribution 
+\end{Answer}
