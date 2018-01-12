@@ -1169,3 +1169,471 @@ What is it about?
 
 \Question  The formula is about the Poisson distribution 
 \end{Answer}
+
+\subsection{Genomic Assembly}
+
+\begin{Exercise} [
+  label={ex34},
+  origin={G. Valle}
+ ]
+Prefix and suffix tree find useful applications in programs to align reads on a
+reference genome.  Here is shown a prefix tree of the word GOOGOL.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{googol}
+\end{figure}
+
+\Question Choose one or more answers:
+\begin{enumerate}
+\item With suitable algorithms and with the information contained in a prefix
+tree like this, it is possible to find if any word is present in the genome
+\item With suitable algorithms and with the information contained in a prefix
+tree like this, it is possible to find also the position of the word in the
+genome
+\item With suitable algorithms and with the information contained in a prefix
+tree like this, it is possible to find also similar words, not only perfect
+matches
+\item With the information contained in a prefix tree like this it is only
+possible to know if a word exist in the genome, not how many times it occurs
+\item A prefix tree like this it is also called Burrow-Weeler Transform
+\item The program BWA uses prefix trees together with some indexes obtained by
+the Burrow-Weeler
+\end{enumerate}
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex34},
+  number={1}
+ ]
+
+\Question The right answers are:
+\begin{itemize}
+\item With suitable algorithms and with the information contained in a prefix
+tree like this, it is possible to find if any word is present in the genome
+\item The program BWA uses prefix trees together with some indexes obtained by
+the Burrow-Weeler Transform algorithm
+\end{itemize}
+
+The first one is correct because all the words will be represented by nodes 
+(including internal words, as it can be seen in the GOOGOL tree). Therefore, an
+algorithm can go through the tree to see if the word is present. This is much
+faster that going through the whole genome. It is like an index.  Differently
+from algorithms based on "seed and extend", where the ``seeds'' (=kmers) have a
+given length, a tree allows to index all the words of any length
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex35},
+  origin={G. Valle}
+ ]
+The whole genome assembly of an organism produced the following set of contigs, ranging from 541 to 6100 bases.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{lnvalue}
+\end{figure}
+
+\Question The organism that was sequenced is probably a:
+\begin{enumerate}
+\item Plant
+\item Archea
+\item Animal
+\item Bacterium
+\item Virus
+\end{enumerate}
+
+\Question The N50 value is:
+\begin{enumerate}
+\item 35212
+\item 6
+\item 12
+\item 3650
+\item 8
+\item 46459
+\item 9
+\item 3021
+\item 7
+\item 11
+\item 49480
+\item 10
+\item 32822
+\item 4005
+\item 22
+\end{enumerate}
+
+\Question The L50 value is:
+\begin{enumerate}
+\item 35212
+\item 6
+\item 12
+\item 3650
+\item 8
+\item 46459
+\item 9
+\item 3021
+\item 7
+\item 11
+\item 49480
+\item 10
+\item 32822
+\item 4005
+\item 22
+\end{enumerate}
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex35},
+  number={1}
+ ]
+
+\Question Virus
+
+\Question 4005
+
+\Question 7
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex36},
+  origin={G. Valle}
+ ]
+
+The chromosomes of many plants and animals are often more than 100
+million bp, while our current DNA sequencing technology is only able to produce
+relatively short reads of a few hundred bases. This is still a big problem if
+we need to assemble a new genome.
+
+Now, say that we performed a Whole Genome Shotgun of a Mollusc that does not
+have phylogenetically related organism known at genomic level. We know that the
+haploid genome is approximately 4 Gbp and we assume that it has an organization
+(repeated sequences, chromosomes, introns, exons) similar to mammals.
+
+In this example we consider that we have produced paired-end Illumina reads
+100+100 bases long from genomic inserts of ~1000 bases, to achieve a sequence
+coverage of 100x.
+
+\Question How many individual reads of 100 bases are required?
+
+\Question What is the resulting physical coverage?
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex36},
+  number={1}
+ ]
+
+\Question if the reads are 100 bases long and you need a 100x coverage, then
+you will need on average one read per every base of the genome, no matter how
+long is the genome. In this specific case, since the genome is 4 billion bases,
+you will need 4 billion reads.\\
+So the answer is \textbf{4000000000}
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex37},
+  origin={G. Valle}
+ ]
+
+\Question After the assembly of the reads with Velvet (that is a program based
+on DeBruijn graphs), what is the N90 that you expect (Remember!  N90, like N50
+considers the length, not the number).
+\begin{enumerate}
+\item between 100 and 500
+\item between 500 and 2500
+\item 2500-10000
+\item 10000-25000
+\item 25000-100000
+\item 100000-250000
+\item 250000-1000000 
+\end{enumerate}
+
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex37},
+  number={1}
+ ]
+
+\Question There is not a precise answer.  In practice we want to consider the
+set of  the longest contigs that as a whole cover 90\% of the genome; then we
+want to consider the shortest contig of that set and we want to guess its
+length. Certainly, to cover 90\% of the genome we need to include also a lot of
+smaller contigs, therefore the resulting N90 will be relatively short.\\
+The right answer is: \textbf{between 100 and 500}
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex38},
+  origin={G. Valle}
+ ]
+
+\Question To improve the assembly you can produce another 400 million reads.
+What do you choose?
+\begin{enumerate}
+\item 200 million paired end as those used for the WGS described above
+\item 200 million mate pairs with average inserts of 2000 bases plus or minus
+200 bases
+\item 200 million mate pairs with average inserts of 20000 bases plus or minus
+2000 bases Parzialmente corretta
+\item 100 million mate pairs from each of the two above libraries
+\item 200 million mate pairs with average inserts of 15000 bases plus or minus
+10000
+\end{enumerate}
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex38},
+  number={1}
+ ]
+
+\Question The main problem in de novo sequencing  is to produce a good
+scaffolding. And this can be done with long mate pairs. On the other hand,
+smaller mate pairs can help to resolve local problems. Therefore, undoubtedly,
+the best choice is to produce 100 million mate pairs from the 2000 library and
+another 100 million from the 20000 library.
+The right answer is: \textbf{100 million mate pairs from each of the two above
+libraries}
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex39},
+  origin={G. Valle}
+ ]
+
+\Question How would you complete the project?
+\begin{enumerate}
+\item I would design PCR primers to amplify at least some of the remaining gaps
+and then I would sequence the resulting amplicons
+\item I would make a BAC library and perform Bac-end sequencing + BAC
+fingerprinting Risposta errataBAC libraries are very difficult to produce and
+the bac end sequencing (Sanger) would be extremely expensive. This is not a
+good choice.
+\item Even if there are not phylogenetically close organisms, I would attempt
+anyway to make an evaluation of the extent of synthenic regions and possibly I
+would use the resulting information to help the scaffolding
+\item I would make an optical map of restriction sites
+\item I would make radiation hybrids to produce a radiation hybrid map
+\end{enumerate}
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex39},
+  number={1}
+ ]
+
+\Question  I would design PCR primers to amplify at least some of the remaining
+gaps and then I would sequence the resulting amplicons, Even if there are not
+phylogenetically close organisms, I would attempt anyway to make an evaluation
+of the extent of synthenic regions and possibly I would use the resulting
+information to help the scaffolding, I would make an optical map of restriction
+sites
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex40},
+  origin={G. Valle}
+ ]
+
+\Question The mature mRNA is encoding proteins by means of “codons” that are 3
+bases long. Therefore mRNA have lengths that are necessarily multiple of 3.
+
+Answer True or False
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex40},
+  number={1}
+ ]
+
+\Question False. Although the coding regions have a length that must be
+multiple of 3, there are untranslated regions both in 3' and 5' (respectively
+3'UTR and 5'UTR) that can be any length. Therefore the mRNA is not necessarily
+a multiple of 3.
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex41},
+  origin={G. Valle}
+ ]
+
+The central dogma of molecular biology is an explanation of the flow of genetic
+information within a biological system. It was first stated by Francis Crick in
+1958 (for more information see Wikipedia).
+
+\Question Place each definition (listed at the bottom of the page) on the
+appropriate place.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{centraldogmaex}
+\end{figure}
+
+Definitions
+\begin{itemize}
+\item tRNA
+\item DNA Polymerase
+\item nucleus
+\item DNA
+\item Protein
+\item Transcription
+\item Replication
+\item codon
+\item RNA polymerase
+\item Ribosome
+\item mRNA
+\item Translation
+\end{itemize}
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex41},
+  number={1}
+ ]
+
+\Question 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{centraldogmarx}
+\end{figure}
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex42},
+  origin={G. Valle}
+ ]
+
+\Question What is the expected percentage (approximate to the nearest integer)
+of the genome covered by at least 3 reads?
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex42},
+  number={1}
+ ]
+
+\Question Our average coverage is 2. This is the variable ``r'' in the above
+formula, or the term ``mean'' in the poisson function of an excel spreadsheet.
+With the formula of the Poisson distribution we can calculate the expected
+fraction of bases covered 0, 1 , 2, 3, etc times. To get the fraction of bases
+covered at least 3 times we must consider that those covered 0, 1 and 2 times
+should not be considered as "good", therefore from 100\% we should remove the
+expected fraction of bases covered 0, 1 , and 2 times:
+expected fraction of bases covered 0 times = 14\%
+expected fraction of bases covered 1 time = 27\%
+expected fraction of bases covered 2 times = 27\%
+Final result: 100-14-27-27= 32\%
+\end{Answer}
+
+
+\begin{Exercise} [
+  label={ex43},
+  origin={G. Valle}
+ ]
+
+We have discussed about the experiment shown in this figure, demonstrating in
+vitro evolution of RNA:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{rnainvitro}
+\end{figure}
+
+\Question Choose one or more answers:
+\begin{enumerate}
+\item It was for the selection of an RNA able to bind ATP Risposta errata
+\item It was for the selection of an RNA able to catalyse a reaction of RNA
+ligation
+\item It was for the selection of an RNA able to covalently bind an amino acid
+\item After the ``nested PCR'' reaction,  the PCR product can be immediately
+used to repeat the cycle
+\item After the ``nested PCR'' reaction,  the PCR product is used as a template
+for transcription before repeating the cycle 
+\end{enumerate}
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex43},
+  number={1}
+ ]
+
+\Question It was for the selection of an RNA able to catalyse a reaction of RNA
+ligation, After the ``nested PCR'' reaction, the PCR product is used as a
+template for transcription before repeating the cycle
+
+\end{Answer}
+
+\begin{Exercise} [
+  label={ex44},
+  origin={G. Valle}
+ ]
+
+\Question Match figures and lists with definitions\\
+(a)
+\begin{figure}[H]
+\includegraphics[scale=0.5]{splicinga}
+\end{figure}
+(b)
+\begin{figure}[H]
+\includegraphics[scale=0.5]{splicingb}
+\end{figure}
+(c)
+\begin{figure}[H]
+\includegraphics[scale=0.5]{splicingc}
+\end{figure}
+(d)
+\begin{figure}[H]
+\includegraphics[scale=0.5]{splicingd}
+\end{figure}
+(e)
+\begin{figure}[H]
+\includegraphics[scale=0.5]{splicinge}
+\end{figure}
+(f) ESE, ISE, ESS, ISS
+(g) SR proteins, HnRNPs
+
+Definitions
+\begin{enumerate}
+\item Mutually exclusive
+\item Cis-acting elements
+\item Trans-acting elements
+\item Intron inversion
+\item Exon skipping/inclusion
+\item Alternative 3' splice sites
+\item Intron retention
+\item Alternative 5' splice sites
+\end{enumerate}
+
+\end{Exercise}
+
+\begin{Answer} [
+  ref={ex44},
+  number={1}
+ ]
+
+\Question 
+\begin{itemize}
+\item fig. a - Exon skipping/inclusion
+\item fig. b - Alternative 3' splice sites
+\item fig. c - Alternative 5' splice sites
+\item fig. d - Mutually exclusive
+\item fig. e - Intron retention
+\item f. ESE, ISE, ESS, ISS - Cis-acting elements
+\item g. SR proteins, HnRNPs - Trans-acting elements
+\end{itemize}
+\end{Answer}
