@@ -990,7 +990,7 @@ Choose one or more answers:
 \item PacBio
 \item SOLiD
 \item Oxford Nanopore
-\item Illumina Risposta errata
+\item Illumina
 \item Pyrosequencing (454 Roche)
 \item Ion Proton
 \item Sanger
@@ -1099,7 +1099,7 @@ repeated 5 times. Would you be able to predict whether there are 5 or 6 repeats?
 \begin{itemize}
 \item Yes, with an accuracy >90\%
 \item We could only make a low accuracy hypothesis if we knew a priory that
-there may be a difference Risposta errata
+there may be a difference
 \item No, because the difference of 300 bases is too small when the standard
 deviation is 600 bases
 \end{itemize}
@@ -1331,6 +1331,13 @@ you will need on average one read per every base of the genome, no matter how
 long is the genome. In this specific case, since the genome is 4 billion bases,
 you will need 4 billion reads.\\
 So the answer is \textbf{4000000000}
+
+\Question Every read-pair has 2 reads of 100 bases (total 200 bases of reads
+coverage) and 1000 bases of insert (i.e. 1000 bases of physical coverage).
+Therefore the physical coverage will be 5 times greater than the sequence
+coverage. Since the sequence coverage was 100x, the physical coverage will be
+500x.\\
+So the answer is \textbf{500}
 \end{Answer}
 
 \begin{Exercise} [
@@ -1413,9 +1420,7 @@ libraries}
 \item I would design PCR primers to amplify at least some of the remaining gaps
 and then I would sequence the resulting amplicons
 \item I would make a BAC library and perform Bac-end sequencing + BAC
-fingerprinting Risposta errataBAC libraries are very difficult to produce and
-the bac end sequencing (Sanger) would be extremely expensive. This is not a
-good choice.
+fingerprinting
 \item Even if there are not phylogenetically close organisms, I would attempt
 anyway to make an evaluation of the extent of synthenic regions and possibly I
 would use the resulting information to help the scaffolding
@@ -1435,7 +1440,9 @@ gaps and then I would sequence the resulting amplicons, Even if there are not
 phylogenetically close organisms, I would attempt anyway to make an evaluation
 of the extent of synthenic regions and possibly I would use the resulting
 information to help the scaffolding, I would make an optical map of restriction
-sites
+sites. Instead BAC libraries are very difficult to produce and
+the bac end sequencing (Sanger) would be extremely expensive. This is not a
+good choice.
 
 \end{Answer}
 
@@ -1555,7 +1562,7 @@ vitro evolution of RNA:
 
 \Question Choose one or more answers:
 \begin{enumerate}
-\item It was for the selection of an RNA able to bind ATP Risposta errata
+\item It was for the selection of an RNA able to bind ATP
 \item It was for the selection of an RNA able to catalyse a reaction of RNA
 ligation
 \item It was for the selection of an RNA able to covalently bind an amino acid
